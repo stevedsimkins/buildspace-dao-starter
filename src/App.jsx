@@ -1,7 +1,27 @@
+import { useEffect, useMemo, useState } from "react";
+
+import { useWeb3 } from "@3rdweb/hooks";
+
 const App = () => {
+
+  const { connectWallet, address, error, provider } = useWeb3();
+  console.log("👋 Address:", address)
+
+  if(!address){
+    return (
+      <div className="landing">
+        <h1>Welcome to BARDAO</h1>
+        <p>Birds aren't real</p>
+        <button onClick={() => connectWallet("injected")} className="btn-hero">
+          Connect your wallet 
+        </button>
+      </div>
+    );
+  }
+
   return (
     <div className="landing">
-      <h1>Welcome to My DAO</h1>
+      <h1>Wallet Connected to BARDAO</h1>
     </div>
   );
 };
