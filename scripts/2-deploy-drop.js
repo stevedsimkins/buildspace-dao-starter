@@ -2,13 +2,13 @@ import { ethers } from "ethers";
 import sdk from "./1-initialize-sdk.js";
 import { readFileSync } from "fs";
 
-const app = sdk.getAppModule("0xDFd3645569618ABB683966FBc43aa84c9CBe51C0");
+const app = sdk.getAppModule("0xA24FA2451943F8a3B6dbB253c537610B074C03a6");
 
 (async () => {
   try {
     const bundleDropModule = await app.deployBundleDropModule({
       // The collection's name, ex. CryptoPunks
-      name: "Birds Aren't Real DAO Membership",
+      name: "Birds Aren't Real DAO",
       // A description for the collection.
       description: "A DAO for those who know the truth",
       // The image for the collection that will show up on OpenSea.

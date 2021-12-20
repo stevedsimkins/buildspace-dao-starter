@@ -3,12 +3,12 @@ import sdk from "./1-initialize-sdk.js";
 
 // Our voting contract.
 const voteModule = sdk.getVoteModule(
-  "0x3799a90a2Bd442e9Adfa4e81E58eF1a23918BbF4",
+  "0x207e2c4f990C7D18aB0489Fe63CBD9adEC4e90A9",
 );
 
 // Our ERC-20 contract.
 const tokenModule = sdk.getTokenModule(
-  "0xA8c218155Ca02c44cED6fD9baE910beEd51f33bB",
+  "0xB14d1EBED096CbA9ae36C9f59f9b19f2b503b6Fb",
 );
 
 (async () => {

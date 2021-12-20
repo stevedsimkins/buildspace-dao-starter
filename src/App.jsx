@@ -2,16 +2,28 @@ import { useEffect, useMemo, useState } from "react";
 import { ThirdwebSDK } from "@3rdweb/sdk";
 import { useWeb3 } from "@3rdweb/hooks";
 import { ethers } from "ethers";
+import Typwriter from "typewriter-effect";
+import Lottie from "react-lottie";
+import animationData from "./assets/drone.json";
 
 const sdk = new ThirdwebSDK("rinkeby");
 
-const bundleDropModule = sdk.getBundleDropModule("0xc7ea7659e16Fa19d986bbf228EDD8Ddc3565Ad62")
+const bundleDropModule = sdk.getBundleDropModule("0xE145A21954FDc687c1C945eC493078c07732Fa79")
 
-const tokenModule = sdk.getTokenModule("0xA8c218155Ca02c44cED6fD9baE910beEd51f33bB");
+const tokenModule = sdk.getTokenModule("0xB14d1EBED096CbA9ae36C9f59f9b19f2b503b6Fb");
 
-const voteModule = sdk.getVoteModule("0x3799a90a2Bd442e9Adfa4e81E58eF1a23918BbF4");
+const voteModule = sdk.getVoteModule("0x207e2c4f990C7D18aB0489Fe63CBD9adEC4e90A9");
 
 const App = () => {
+
+  const defaultOptions = {
+    loop: true,
+    autoplay: true, 
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice'
+    }
+  } 
 
   const { connectWallet, address, error, provider } = useWeb3();
   console.log("👋 Address:", address)
@@ -171,11 +183,15 @@ const App = () => {
   if(!address){
     return (
       <div className="landing">
-        <h1>BIRDS AREN'T REAL <br/> DAO</h1>
+        <h1><Typwriter onInit={(typewriter) => {
+          typewriter.typeString(`BIRDS AREN'T REAL DAO`)
+          .pauseFor(900)
+          .start()
+        }} /></h1>
         <h3 className="warning">
           EVERY "BIRD" IS <br/>
           A GOVERNMENT <br/>
-          SURVAILANCE DRONE
+          SURVEILLANCE DRONE
         </h3>
         <button onClick={() => connectWallet("injected")} className="btn-hero">
           Connect your wallet 
@@ -195,7 +211,7 @@ const App = () => {
           <h3 className="warning">
           EVERY "BIRD" IS <br/>
           A GOVERNMENT <br/>
-          SURVAILANCE DRONE
+          SURVEILLANCE DRONE
           </h3>
           <div>
             <div>
@@ -371,13 +387,13 @@ const App = () => {
       <h3 className="warning">
         EVERY "BIRD" IS <br/>
         A GOVERNMENT <br/>
-        SURVAILANCE DRONE
+        SURVEILLANCE DRONE
       </h3>
       <button
         disabled={isClaiming}
         onClick={() => mintNft()}
       >
-        {isClaiming ? "Minting..." : "Mint"}
+        {isClaiming ? <Lottie options={defaultOptions} height={200} width={200} /> : "Mint"}
       </button>
     </div>  );
 };

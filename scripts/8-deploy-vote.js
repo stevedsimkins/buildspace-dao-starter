@@ -2,17 +2,17 @@ import sdk from "./1-initialize-sdk.js";
 
 // Grab the app module address.
 const appModule = sdk.getAppModule(
-  "0xDFd3645569618ABB683966FBc43aa84c9CBe51C0",
+  "0xA24FA2451943F8a3B6dbB253c537610B074C03a6",
 );
 
 (async () => {
   try {
     const voteModule = await appModule.deployVoteModule({
       // Give your governance contract a name.
-      name: "Birds Aren't Real DAO Proposals",
+      name: "BIRDS AREN'T REAL DAO PROPOSALS",
 
       // This is the location of our governance token, our ERC-20 contract!
-      votingTokenAddress: "0xA8c218155Ca02c44cED6fD9baE910beEd51f33bB",
+      votingTokenAddress: "0xB14d1EBED096CbA9ae36C9f59f9b19f2b503b6Fb",
 
       // After a proposal is created, when can members start voting?
       // For now, we set this to immediately.
